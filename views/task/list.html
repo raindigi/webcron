@@ -75,11 +75,11 @@
 					<td>
 						{{if eq $v.status 0}}
 						<a class="btn btn-danger" href="{{urlfor "TaskController.Start"}}?id={{$v.id}}">
-							<span class="icon-play-circle icon-white"></span> Active
+							<span class="icon-play-circle icon-white"></span> Start
 						</a>
 						{{else}}
 						<a class="btn btn-success" href="{{urlfor "TaskController.Pause"}}?id={{$v.id}}">
-							<span class="icon-ban-circle icon-white"></span> Paused
+							<span class="icon-ban-circle icon-white"></span> Pause
 						</a>
 						{{end}}
 						<a class="btn btn-info" href="{{urlfor "TaskController.Edit"}}?id={{$v.id}}">
