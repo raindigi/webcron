@@ -7,9 +7,9 @@ import (
 )
 
 const (
-	TASK_SUCCESS = 0  // 任务执行成功
-	TASK_ERROR   = -1 // 任务执行出错
-	TASK_TIMEOUT = -2 // 任务执行超时
+	TASK_SUCCESS = 0  // Task execution is successful
+	TASK_ERROR   = -1 // Task execution error
+	TASK_TIMEOUT = -2 // Task execution timed out
 )
 
 type Task struct {
@@ -44,13 +44,13 @@ func (t *Task) Update(fields ...string) error {
 
 func TaskAdd(task *Task) (int64, error) {
 	if task.TaskName == "" {
-		return 0, fmt.Errorf("TaskName字段不能为空")
+		return 0, fmt.Errorf("TaskName field can not be empty")
 	}
 	if task.CronSpec == "" {
-		return 0, fmt.Errorf("CronSpec字段不能为空")
+		return 0, fmt.Errorf("CronSpec field can not be empty")
 	}
 	if task.Command == "" {
-		return 0, fmt.Errorf("Command字段不能为空")
+		return 0, fmt.Errorf("Command field can not be empty")
 	}
 	if task.CreateTime == 0 {
 		task.CreateTime = time.Now().Unix()
