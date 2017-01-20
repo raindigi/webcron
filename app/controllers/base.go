@@ -39,7 +39,7 @@ func (this *BaseController) Prepare() {
 	this.Data["loginUserName"] = this.userName
 }
 
-//登录状态验证
+// Login status verification
 func (this *BaseController) auth() {
 	arr := strings.Split(this.Ctx.GetCookie("auth"), "|")
 	if len(arr) == 2 {
@@ -61,7 +61,7 @@ func (this *BaseController) auth() {
 	}
 }
 
-//渲染模版
+// Render the template
 func (this *BaseController) display(tpl ...string) {
 	var tplname string
 	if len(tpl) > 0 {
@@ -73,18 +73,18 @@ func (this *BaseController) display(tpl ...string) {
 	this.TplName = tplname
 }
 
-// 重定向
+// Redirect
 func (this *BaseController) redirect(url string) {
 	this.Redirect(url, 302)
 	this.StopRun()
 }
 
-// 是否POST提交
+// Is POST submitted
 func (this *BaseController) isPost() bool {
 	return this.Ctx.Request.Method == "POST"
 }
 
-// 显示错误信息
+// An error message is displayed
 func (this *BaseController) showMsg(args ...string) {
 	this.Data["message"] = args[0]
 	redirect := this.Ctx.Request.Referer()
@@ -93,13 +93,13 @@ func (this *BaseController) showMsg(args ...string) {
 	}
 
 	this.Data["redirect"] = redirect
-	this.Data["pageTitle"] = "系统提示"
+	this.Data["pageTitle"] = "System hint"
 	this.display("error/message")
 	this.Render()
 	this.StopRun()
 }
 
-// 输出json
+// Output json
 func (this *BaseController) jsonResult(out interface{}) {
 	this.Data["json"] = out
 	this.ServeJSON()
@@ -114,7 +114,7 @@ func (this *BaseController) ajaxMsg(msg interface{}, msgno int) {
 	this.jsonResult(out)
 }
 
-//获取用户IP地址
+// Gets the user IP address
 func (this *BaseController) getClientIp() string {
 	s := strings.Split(this.Ctx.Request.RemoteAddr, ":")
 	return s[0]
