@@ -62,7 +62,7 @@ func (this *TaskController) List() {
 	// Group list
 	groups, _ := models.TaskGroupGetList(1, 100)
 
-	this.Data["pageTitle"] = "任务列表"
+	this.Data["pageTitle"] = "Task list"
 	this.Data["list"] = list
 	this.Data["groups"] = groups
 	this.Data["groupid"] = groupId
@@ -171,7 +171,7 @@ func (this *TaskController) Edit() {
 	groups, _ := models.TaskGroupGetList(1, 100)
 	this.Data["groups"] = groups
 	this.Data["task"] = task
-	this.Data["pageTitle"] = "编辑任务"
+	this.Data["pageTitle"] = "Edit task"
 	this.display()
 }
 
@@ -201,7 +201,7 @@ func (this *TaskController) Logs() {
 		list[k] = row
 	}
 
-	this.Data["pageTitle"] = "任务执行日志"
+	this.Data["pageTitle"] = "Task execution log"
 	this.Data["list"] = list
 	this.Data["task"] = task
 	this.Data["pageBar"] = libs.NewPager(page, int(count), this.pageSize, beego.URLFor("TaskController.Logs", "id", taskId), true).ToString()
