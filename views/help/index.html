@@ -4,70 +4,70 @@
 	<div class="widget ">
 		<div class="widget-header">
 			<i class="icon-th-list"></i>
- 			<h3>使用帮助</h3>
+ 			<h3>Using Help</h3>
 		</div> <!-- /widget-header -->
 
 		<div class="widget-content">
-			<h4>Cron表达式说明</h4>
+			<h4>Cron expression description</h4>
 			<hr />
 			<p>
-			Cron表达式是一个字符串，字符串以空格隔开，分为5或6个域，每一个域代表一个含义，系统支持的表达式格式如下：<br /> 
+			The Cron expression is a string, The strings are separated by spaces, Is divided into 5 or 6 domains, each domain represents a meaning, The system supports the following expressions：<br /> 
 			<pre>Seconds Minutes Hours DayofMonth Month [DayofWeek]</pre>
-			其中 DayofWeek 为可选域。
+			DayofWeek is optional
 			</p>
 			<p>
-			每一个域可出现的字符如下： 
+			The characters that can appear for each field are as follows： 
 			<ul>
-				<li><b>Seconds:</b> 可出现"* / , -"四个字符，有效范围为0-59的整数</li>
-				<li><b>Minutes:</b> 可出现"* / , -"四个字符，有效范围为0-59的整数 </li>
-				<li><b>Hours:</b> 可出现"* / , -"四个字符，有效范围为0-23的整数 </li>
-				<li><b>DayofMonth:</b> 可出现"* / , - ?"五个字符，有效范围为0-31的整数</li> 
-				<li><b>Month:</b> 可出现", - * /"四个字符，有效范围为1-12的整数或JAN-DEC</li> 
-				<li><b>DayofWeek:</b> 可出现"* / , - ?"五个字符，有效范围为0-6的整数或SUN-SAT两个范围。0表示星期天，1表示星期一， 依次类推 </li>
+				<li><b>Seconds:</b> Can appear "* /, -" four characters, The valid range is an integer from 0-59</li>
+				<li><b>Minutes:</b> There may be "* /, -" four characters, the effective range of 0-59 integer </li>
+				<li><b>Hours:</b> There may be "* /, -" four characters, the effective range of 0-23 integer </li>
+				<li><b>DayofMonth:</b> Can appear "* /, -?" Five characters, the effective range of 0-31 integer</li> 
+				<li><b>Month:</b> Can appear, "- * /" four characters, an integer ranging from 1-12 or JAN-DEC</li> 
+				<li><b>DayofWeek:</b> Can appear "* /, -?" Five characters, the effective range of 0-6 integer or SUN-SAT two range. 0 for Sunday, 1 for Monday, and so on </li>
 			</ul>
 			</p>
 			<p>
-			各个字符的含义如下：
+			Each character has the following meaning：
 			<ul>
-				<li>* 表示匹配该域的任意值，假如在Minutes域使用*, 即表示每分钟都会触发事件。</li>
-				<li>? 字符仅被用于天（月）和天（星期）两个子表达式，表示不指定值，当2个子表达式其中之一被指定了值以后，为了避免冲突，需要将另一个子表达式的值设为“?”。</li>
-				<li>- 表示范围，例如在Minutes域使用5-20，表示从5分到20分钟每分钟触发一次。</li>
-				<li>/ 表示起始时间开始触发，然后每隔固定时间触发一次，例如在Minutes域使用5/20,则意味着5分钟触发一次，而25，45等分别触发一次。</li>
-				<li>, 表示列出枚举值值。例如：在Minutes域使用5,20，则意味着在5和20分每分钟触发一次。</li>
+				<li>* Represents any value that matches the field, If you use * in the Minutes field, This means that the event is triggered every minute.</li>
+				<li>? Characters are used only for the day (month) and day (week) two sub-expressions, Indicates that no value is specified, When one of the two subexpressions is assigned a value, In order to avoid conflicts, You need to set the value of another subexpression to "?".</li>
+				<li>- Representation range, for example, in the Minutes domain 5-20, Indicates a trigger from 5 minutes to 20 minutes per minute.</li>
+				<li>/ Indicates that the start time starts to trigger, And then triggered once every fixed time, For example, in the Minutes domain using 5/20, it means that 5 minutes to trigger once, And 25,45, respectively, triggered once.</li>
+				<li>, Indicates enumeration value values are listed. For example: in the Minutes domain using 5,20, It means triggering at 5 and 20 minutes per minute.</li>
 			</ul>
 			</p>
 			<p>
-			一些例子：
+			Some examples：
 			<pre>
-0 0 10,14,16 * * ? 每天上午10点，下午2点，4点触发 
+0 0 10,14,16 * * ? Every day at 10:00, 14:00, 16:00
 
-0 0/30 9-17 * * ? 朝九晚五工作时间内每半小时触发  
+0 0/30 9-17 * * ? Every half hour between 09:00-17:00
 
-0 0 12 ? * WED 表示每个星期三中午12点触发  
+0 0 12 ? * WED Every Wednesday at 12 noon
 
-0 0 12 * * ? 每天中午12点触发 
+0 0 12 * * ? Every day at 12:00
 
-0 15 10 ? * * 每天上午10:15触发 
+0 15 10 ? * * Every day at 10:15 in the morning
 
-0 15 10 * * ? 每天上午10:15触发 
+0 15 10 * * ? Every day at 10:15 in the morning
 
-0 15 10 * * ? * 每天上午10:15触发 
+0 15 10 * * ? * Every day at 10:15 in the morning
 
-0 * 14 * * ? 在每天下午2点到下午2:59期间的每1分钟触发 
+0 * 14 * * ? Every 1 minute between 14:00 and 14:59 daily
 
-0 0/5 14 * * ? 在每天下午2点到下午2:55期间的每5分钟触发 
+0 0/5 14 * * ? Every 5 minutes between 14:00 and 14:55 daily
 
-0 0/5 14,18 * * ? 在每天下午2点到2:55期间和下午6点到6:55期间的每5分钟触发 
+0 0/5 14,18 * * ? Every 5 minutes between 14:00 to 14:55 and 18:00 to 18:55
 
-0 0-5 14 * * ? 在每天下午2点到下午2:05期间的每1分钟触发 
+0 0-5 14 * * ? Every 1 minute between 14:00 and 14:05 daily
 
-0 10,44 14 ? 3 WED 每年三月的星期三的下午2:10和2:44触发 
+0 10,44 14 ? 3 WED Every Wednesday on March at 14:10 and 14:44
 
-0 15 10 ? * MON-FRI 周一至周五的上午10:15触发 
+0 15 10 ? * MON-FRI Triggered at 10:15 Monday through Friday
 
-0 15 10 15 * ? 每月15日上午10:15触发 
+0 15 10 15 * ? Every month on the 15th at 10:15
 
-0 15 10 L * ? 每月最后一日的上午10:15触发</pre>
+0 15 10 L * ? Trigger on the last day of the month at 10:15</pre>
 			</p>
 		</div>
 	</div>
