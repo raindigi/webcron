@@ -16,7 +16,7 @@ func main() {
 	models.Init()
 	jobs.InitJobs()
 
-	// 设置默认404页面
+	// Set the default 404 page
 	beego.ErrorHandler("404", func(rw http.ResponseWriter, r *http.Request) {
 		t, _ := template.New("404.html").ParseFiles(beego.BConfig.WebConfig.ViewsPath + "/error/404.html")
 		data := make(map[string]interface{})
@@ -24,13 +24,13 @@ func main() {
 		t.Execute(rw, data)
 	})
 
-	// 生产环境不输出debug日志
+	// The debug log is not output in the production environment
 	if beego.AppConfig.String("runmode") == "prod" {
 		beego.SetLevel(beego.LevelInformational)
 	}
 	beego.AppConfig.Set("version", VERSION)
 
-	// 路由设置
+	// Route settings
 	beego.Router("/", &controllers.MainController{}, "*:Index")
 	beego.Router("/login", &controllers.MainController{}, "*:Login")
 	beego.Router("/logout", &controllers.MainController{}, "*:Logout")
