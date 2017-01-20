@@ -41,12 +41,12 @@
 					<div class="news-item-detail"> 
 						<a href="{{urlfor "TaskController.ViewLog" "id" $v.id}}" class="news-item-title">{{$v.task_name}} # {{$v.id}}</a>
 						<p class="news-item-preview">
-						开始时间：{{$v.start_time}} | 执行时间：{{$v.process_time}}秒 | 输出：{{$v.ouput_size}} | 状态：{{if eq $v.status 0}}
-						正常
+						Starting time：{{$v.start_time}} | Execution time：{{$v.process_time}}seconds | Output：{{$v.ouput_size}} | Status：{{if eq $v.status 0}}
+						Normal
 						{{else if eq $v.status -1}}
-						<span style="color:red">异常</span>
+						<span style="color:red">Abnormal</span>
 						{{else}}
-						<span style="color:red">超时</span>
+						<span style="color:red">Time out</span>
 						{{end}}
 						</p>
 						<blockquote>{{$v.error}}</blockquote>
@@ -66,7 +66,7 @@
 	
 		<div class="widget widget-nopad">
 			<div class="widget-header"> <i class="icon-list-alt"></i>
-				<h3>最近执行任务</h3>
+				<h3>The most recent task</h3>
 			</div>
 			<!-- /widget-header -->
 			<div class="widget-content">
@@ -77,12 +77,12 @@
 					<div class="news-item-detail"> 
 						<a href="{{urlfor "TaskController.ViewLog" "id" $v.id}}" class="news-item-title">{{$v.task_name}} # {{$v.id}}</a>
 						<p class="news-item-preview">
-						开始时间：{{$v.start_time}} | 执行时间：{{$v.process_time}}秒 | 输出：{{$v.ouput_size}} | 状态：{{if eq $v.status 0}}
-						正常
+						Starting time：{{$v.start_time}} | Execution time：{{$v.process_time}}seconds | Output：{{$v.ouput_size}} | Status：{{if eq $v.status 0}}
+						Normal
 						{{else if eq $v.status -1}}
-						<span style="color:red">异常</span>
+						<span style="color:red">Abnormal</span>
 						{{else}}
-						<span style="color:red">超时</span>
+						<span style="color:red">Time out</span>
 						{{end}}
 						</p>
 						<blockquote>{{$v.output}}</blockquote>
