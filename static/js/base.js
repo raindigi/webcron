@@ -29,6 +29,6 @@ $(function () {
 
 function setTime(initTime,serverTime) {
 	ellapsedTime = new Date().getTime()-initTime;
-	$('#server-time').html('当前服务器时间: <strong>'+new Date(serverTime+ellapsedTime).Format("yyyy-MM-dd hh:mm:ss")+'</strong>');
+	$('#server-time').html('Current server time: <strong>'+new Date(serverTime+ellapsedTime).Format("dd-MM-yyyy hh:mm:ss")+'</strong>');
 	setTimeout('setTime('+initTime+','+serverTime+');',500);
 }
