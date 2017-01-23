@@ -1,50 +1,57 @@
+This is a fork. I have already translated the main app using Google Translate. The next step is to run the app and correct the translation.
+Feel free to give it a try and contribute.
+
 # webcron
 ------------
 
-一个定时任务管理器，基于Go语言和beego框架开发。用于统一管理项目中的定时任务，提供可视化配置界面、执行日志记录、邮件通知等功能，无需依赖*unix下的crontab服务。
+A timed task manager, based on Go language and beego framework development. For unified management of the project timed tasks, provide a visual configuration interface, the implementation of logging, mail notification and other functions, without relying on * crontab Unix services.
 
-## 项目背景
+## Background of the project
 
-开发此项目是为了解决本人所在公司的PHP项目中定时任务繁多，使用crontab不好管理的问题。我所在项目的定时任务也是PHP编写的，属于整个项目的一部分，我希望能有一个系统可以统一配置这些定时任务，并且可以查看每次任务的执行情况，任务执行完成或失败能够自动邮件提醒开发人员，因此做了这个项目。
+Development of this project is to solve my company's PHP projects in a number of regular tasks, the use of crontab bad management. Timing tasks in my project is also written in PHP, is part of the whole project, I hope to have a system that can configure these timed tasks, and can view the execution of each task, the task is completed or failed to automatically mail alert development Personnel, therefore did this project.
 
-## 功能特点
+## Features
 
-* 统一管理多种定时任务。
-* 秒级定时器，使用crontab的时间表达式。
-* 可随时暂停任务。
-* 记录每次任务的执行结果。
-* 执行结果邮件通知。
+* Unified management of a variety of timing tasks.
+* Second-level timer, the use of crontab time expression.
+* Pause tasks at any time.
+* Record the results of each task execution.
+* Perform result mail notification.
 
-## 界面截图
+## Interface screenshots
 
 ![webcron](https://raw.githubusercontent.com/lisijie/webcron/master/screenshot.png)
 
 
-## 安装说明
+## Installation Notes
 
-系统需要安装Go和MySQL。
+Go and MySQL are required.
 
-获取源码
+Get the source code
 
-	$ go get github.com/lisijie/webcron
+	$ go get github.com/anselal/webcron
 	
-打开配置文件 conf/app.conf，修改相关配置。
+Open the configuration file conf/app.conf, modify the relevant configuration.
 	
 
-创建数据库webcron，再导入install.sql
+Create the database webcron and import install.sql
 
 	$ mysql -u username -p -D webcron < install.sql
 
-运行
+Build
+
+	$ go build
+
+Run
 	
 	$ ./webcron
-	或
+	or
 	$ nohup ./webcron 2>&1 > error.log &
-	设为后台运行
+	Set to run in the background
 
-访问： 
+Access： 
 
 http://localhost:8000
 
-帐号：admin
-密码：admin888
+username：admin
+password：admin888
